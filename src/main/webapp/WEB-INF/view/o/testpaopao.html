@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+/*背景泡泡样式*/
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+}  
+
+/*背景泡泡样式结束*/
+		
+		
+		
+		
+	</style>		
+	<script src="../../../resources/js/h5/background.js"></script>	
+
+	</head>
+	<body>
+	<!--背景泡泡-->
+	<canvas id="background"></canvas>   
+	梦幻泡泡
+
+	<!--背景泡泡结束	-->
+	<div>
+		<center>
+					<form class="form-horizontal"
+						action="${contextPath}/login"
+						method="post" onsubmit="return verify();">
+						
+					<input class="input-large span10"  name="phone" id="phone"
+							type="text" placeholder="请输入手机号" />
+					<br />	
+					<input class="input-large span10"  name="password" id="passwd"
+							type="password" placeholder="请输入密码" />	
+						
+								<table width="50%" height="50px" align="center">
+								<tr>
+								<td >
+								<span class="add-on"><i class="halflings-icon"></i></span>
+								<input class="input-large span10" name="verifyCode" id="verifyCode"
+									type="text" placeholder="验证码" />
+								</td>
+								<tr/>
+								<tr>
+								<td>
+								<img alt="看不清？点击换一张"  onclick="refreshCode(this)" src="${contextPath}/getCode">
+								
+								</td>
+								</tr>
+								</table>
+							
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="message" style="color:red"></span>
+							
+								<button type="submit" class="btn btn-primary">登录</button>
+					</form>
+			</center>
+				</div>		
+		
+	</body>
+</html>
