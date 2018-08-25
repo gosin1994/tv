@@ -77,6 +77,10 @@ public class ApplyServiceImpl2 implements ApplyService2 {
 		order.setMemberName(apply.getMemberName());
 		order.setPhone(apply.getPhone());
 		order.setUpdateTime(now);
+		
+		order.setRootMemberId(apply.getRootMemberId());
+		order.setRootMemberName(apply.getRootMemberName());
+		
 		//order.setUserId(user.getId());
 		//order.setUserName(user.getName());
 		
@@ -115,6 +119,9 @@ public class ApplyServiceImpl2 implements ApplyService2 {
 		directCommission.setBankAccountName(directMember.getBankAccountName());
 		directCommission.setBankAccountNo(directMember.getBankAccountNo());
 		directCommission.setAlipayNo(directMember.getAlipayNo());
+		
+		directCommission.setRootMemberId(apply.getRootMemberId());
+		directCommission.setRootMemberName(apply.getRootMemberName());
 		
 		commissionDao.insert(directCommission);
 		

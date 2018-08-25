@@ -30,4 +30,6 @@ public interface CommissionService {
 	int persistRule(CommissionRule commissionRule);
 
 	void persist(Commission commission);
+
+	List<Commission> selectChildApply(Commission query, Page<Commission> page, String phone);
 }

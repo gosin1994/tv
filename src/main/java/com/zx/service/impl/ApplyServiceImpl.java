@@ -84,6 +84,10 @@ public class ApplyServiceImpl implements ApplyService {
 		order.setMemberName(apply.getMemberName());
 		order.setPhone(apply.getPhone());
 		order.setUpdateTime(now);
+		
+		order.setRootMemberId(apply.getRootMemberId());
+		order.setRootMemberName(apply.getRootMemberName());
+		
 		//order.setUserId(user.getId());
 		//order.setUserName(user.getName());
 		
@@ -122,6 +126,9 @@ public class ApplyServiceImpl implements ApplyService {
 		directCommission.setBankAccountName(directMember.getBankAccountName());
 		directCommission.setBankAccountNo(directMember.getBankAccountNo());
 		directCommission.setAlipayNo(directMember.getAlipayNo());
+		
+		directCommission.setRootMemberId(apply.getRootMemberId());
+		directCommission.setRootMemberName(apply.getRootMemberName());
 		
 		commissionDao.insert(directCommission);
 		
@@ -262,7 +269,6 @@ public class ApplyServiceImpl implements ApplyService {
 		
 		try {
 			Member member = memberDao.selectByPhone(phone);
-			System.out.println(member.toString());
 			query.setRootMemberId(member.getId());
 		} catch (Exception e) {
 			// TODO: handle exception

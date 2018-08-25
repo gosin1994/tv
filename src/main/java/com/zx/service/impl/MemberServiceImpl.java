@@ -73,12 +73,12 @@ public class MemberServiceImpl implements MemberService {
 		//String text = " ";
 		
 		String fileName = member.getPhone()+".png";
-		String qrcodeUrl = "/tv4/img/qrcode/"+member.getPhone()+".jpg";
+		String qrcodeUrl = "/tv/img/qrcode/"+member.getPhone()+".jpg";
 		//http://www.szhukou.com.cn/zx/o/customer/apply?mid=2
 		
 		//二维码跳转到测评页面
 		//String message = "http://www.szhukou.com.cn/zx/o/customer/apply?mid=44";
-		String message = "http://www.szhukou.com.cn/tv4/o/customer/apply?mid="+member.getId();
+		String message = "http://www.szhukou.com.cn/tv/o/customer/apply?mid="+member.getId();
 		//二维码跳转到首页
 		//String message = "http://www.szhukou.com.cn/zx/o/customer?mid="+member.getId();
 		

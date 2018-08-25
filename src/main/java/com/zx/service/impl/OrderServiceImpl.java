@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 import com.zx.common.page.Page;
 import com.zx.dao.ApplyDao;
 import com.zx.dao.CommissionDao;
+import com.zx.dao.MemberDao;
 import com.zx.dao.OrderDao;
 import com.zx.entity.Apply;
 import com.zx.entity.Commission;
+import com.zx.entity.Member;
 import com.zx.entity.Order;
 import com.zx.service.OrderService;
 
@@ -26,6 +28,9 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Autowired
 	private CommissionDao commissionDao;
+	
+	@Autowired
+	private MemberDao memberDao;
 	
 	public List<Order> selectAll(Order query, Page<Order> page) {
 		return orderDao.selectAll(query, page);
@@ -94,6 +99,20 @@ public class OrderServiceImpl implements OrderService {
 	public int deleteByPrimaryKey(Integer id) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+
+	@Override
+	public List<Order> selectChildOrder(Order query, Page<Order> page, String phone) {
+		try {
+			Member member = memberDao.selectByPhone(phone);
+			query.setRootMemberId(member.getId());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return orderDao.selectAll(query, page);
 	}
 
 

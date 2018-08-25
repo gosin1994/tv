@@ -15,10 +15,12 @@
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="root_member_id" property="rootMemberId" jdbcType="INTEGER" />
+    <result column="root_member_name" property="rootMemberName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, apply_id, customer_id, customer_name, phone, member_id, member_name, amount, 
-    commission_amount, user_id, user_name, update_time, create_time
+    commission_amount, user_id, user_name, update_time, create_time,root_member_id,root_member_name
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -31,6 +33,15 @@
     <include refid="Base_Column_List" />
     from t_order
     where 1=1
+    <if test="query.rootMemberId != null" >
+		and root_member_id = #{query.rootMemberId,jdbcType=INTEGER}
+     </if>
+     <if test="query.userName != null" >
+	and name like CONCAT('%',#{query.userName,jdbcType=VARCHAR},'%' )
+     </if>
+     <if test="query.phone != null" >
+	and phone like CONCAT('%',#{query.phone,jdbcType=VARCHAR},'%' )
+     </if>
      order by create_time desc
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
@@ -42,12 +53,12 @@
       customer_name, phone, member_id, 
       member_name, amount, commission_amount, 
       user_id, user_name, update_time, 
-      create_time)
+      create_time,root_member_id,root_member_name)
     values (#{id,jdbcType=INTEGER}, #{applyId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, 
       #{customerName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, 
       #{memberName,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, #{commissionAmount,jdbcType=INTEGER}, 
       #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{createTime,jdbcType=TIMESTAMP},#{rootMemberId,jdbcType=INTEGER}, #{rootMemberName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zx.entity.Order" >
     insert into t_order

@@ -19,6 +19,7 @@ import com.zx.common.util.SystemUtil;
 import com.zx.entity.Apply;
 import com.zx.entity.Commission;
 import com.zx.entity.CommissionRule;
+import com.zx.entity.User;
 import com.zx.service.ApplyService;
 import com.zx.service.CommissionService;
 
@@ -33,10 +34,17 @@ public class CommissionController {
 	
 	
 	@RequestMapping
-	public ModelAndView list(Commission query, Page<Commission> page){
+	public ModelAndView list(HttpServletRequest request, Commission query, Page<Commission> page){
 		ModelAndView mv = new ModelAndView();
+		User user = SystemUtil.getLoginUser(request);
+		List<Commission> commissions = null;
+		if (user.getIsAdmin() == 1) {
+			commissions = commissionService.selectAll(query,page);
+		} else {
+			String phone = user.getPhone();
+			commissions = commissionService.selectChildApply(query, page, phone);
+		}
 		
-		List<Commission> commissions = commissionService.selectAll(query,page);
 		mv.addObject("query", query);
 		mv.addObject("page", page);
 		mv.addObject("commissions", commissions);

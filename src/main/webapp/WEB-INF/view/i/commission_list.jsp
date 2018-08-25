@@ -95,10 +95,12 @@
 												<c:when test="${commission.state==1}">
 												</c:when>
 												<c:otherwise>
-													<c:if test="${sessionScope.user.isAdmin=='1'}">
 													&nbsp;<a class="btn btn-info"
 											href="javascript:void(0);" onclick="pay(${commission.id})" >结算</a>
-													</c:if>
+													<!--<c:if test="${sessionScope.user.isAdmin=='1'}">
+													&nbsp;<a class="btn btn-info"
+											href="javascript:void(0);" onclick="pay(${commission.id})" >结算</a>
+													</c:if>-->
 												</c:otherwise>
 											</c:choose>
 											

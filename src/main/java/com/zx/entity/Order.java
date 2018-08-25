@@ -28,108 +28,129 @@ public class Order {
     private Date updateTime;
 
     private Date createTime;
+    
+    private Integer rootMemberId;
+    
+    private String rootMemberName;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getApplyId() {
-        return applyId;
-    }
+	public Integer getApplyId() {
+		return applyId;
+	}
 
-    public void setApplyId(Integer applyId) {
-        this.applyId = applyId;
-    }
+	public void setApplyId(Integer applyId) {
+		this.applyId = applyId;
+	}
 
-    public Integer getCustomerId() {
-        return customerId;
-    }
+	public Integer getCustomerId() {
+		return customerId;
+	}
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
 
-    public String getCustomerName() {
-        return customerName;
-    }
+	public String getCustomerName() {
+		return customerName;
+	}
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName == null ? null : customerName.trim();
-    }
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public Integer getMemberId() {
-        return memberId;
-    }
+	public Integer getMemberId() {
+		return memberId;
+	}
 
-    public void setMemberId(Integer memberId) {
-        this.memberId = memberId;
-    }
+	public void setMemberId(Integer memberId) {
+		this.memberId = memberId;
+	}
 
-    public String getMemberName() {
-        return memberName;
-    }
+	public String getMemberName() {
+		return memberName;
+	}
 
-    public void setMemberName(String memberName) {
-        this.memberName = memberName == null ? null : memberName.trim();
-    }
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
 
-    public Integer getAmount() {
-        return amount;
-    }
+	public Integer getAmount() {
+		return amount;
+	}
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
 
-    public Integer getCommissionAmount() {
-        return commissionAmount;
-    }
+	public Integer getCommissionAmount() {
+		return commissionAmount;
+	}
 
-    public void setCommissionAmount(Integer commissionAmount) {
-        this.commissionAmount = commissionAmount;
-    }
+	public void setCommissionAmount(Integer commissionAmount) {
+		this.commissionAmount = commissionAmount;
+	}
 
-    public Integer getUserId() {
-        return userId;
-    }
+	public Integer getUserId() {
+		return userId;
+	}
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+	public Date getUpdateTime() {
+		return updateTime;
+	}
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Integer getRootMemberId() {
+		return rootMemberId;
+	}
+
+	public void setRootMemberId(Integer rootMemberId) {
+		this.rootMemberId = rootMemberId;
+	}
+
+	public String getRootMemberName() {
+		return rootMemberName;
+	}
+
+	public void setRootMemberName(String rootMemberName) {
+		this.rootMemberName = rootMemberName;
+	}
+
 }

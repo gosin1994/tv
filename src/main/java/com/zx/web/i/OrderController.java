@@ -2,6 +2,8 @@ package com.zx.web.i;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zx.common.page.Page;
+import com.zx.common.util.SystemUtil;
 import com.zx.entity.Apply;
 import com.zx.entity.Commission;
 import com.zx.entity.Order;
+import com.zx.entity.User;
 import com.zx.service.ApplyService;
 import com.zx.service.OrderService;
 
@@ -30,11 +34,20 @@ public class OrderController {
 	
 	
 	@RequestMapping
-	public ModelAndView list(Order query, Page<Order> page){
+	public ModelAndView list(HttpServletRequest request, Order query, Page<Order> page){
 		ModelAndView mv = new ModelAndView();
+		User user = SystemUtil.getLoginUser(request);
+		List<Order> orders = null;
 		
-		List<Order> orders = orderService.selectAll(query, page);
+		if (user.getIsAdmin() == 1) {
+			orders = orderService.selectAll(query, page);
+		} else {
+			String phone = user.getPhone();
+			orders = orderService.selectChildOrder(query, page, phone);
+		}
 		
+		mv.addObject("query", query);
+		mv.addObject("page", page);
 		mv.addObject("orders", orders);
 		mv.setViewName("i/order_list");
 		return mv;

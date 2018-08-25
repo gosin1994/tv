@@ -22,4 +22,6 @@ public interface OrderService {
 	List<Order> selectAll(Order query, Page<Order> page);
 
 	List<Commission> getCommissionList(Integer orderId);
+
+	List<Order> selectChildOrder(Order query, Page<Order> page, String phone);
 }

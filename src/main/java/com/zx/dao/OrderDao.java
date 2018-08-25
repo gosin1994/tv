@@ -2,6 +2,8 @@ package com.zx.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.zx.common.page.Page;
 import com.zx.entity.Order;
 
@@ -18,5 +20,5 @@ public interface OrderDao {
 
     int updateByPrimaryKey(Order record);
     
-    List<Order> selectAll(Order query, Page<Order> page);
+    List<Order> selectAll(@Param("query")Order query, Page<Order> page);
 }

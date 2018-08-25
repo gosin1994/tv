@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import com.zx.common.page.Page;
 import com.zx.dao.CommissionDao;
 import com.zx.dao.CommissionRuleDao;
+import com.zx.dao.MemberDao;
 import com.zx.entity.Commission;
 import com.zx.entity.CommissionRule;
+import com.zx.entity.Member;
 import com.zx.service.CommissionService;
 
 @Service("commissionService")
@@ -25,6 +27,9 @@ public class CommissionServiceImpl implements CommissionService {
 	@Autowired
 	private CommissionRuleDao commissionRuleDao;
 	
+	@Autowired
+	private MemberDao memberDao;
+
 	
 	
 	public List<Commission> selectAll(Commission query, Page<Commission> page) {
@@ -104,6 +109,20 @@ public class CommissionServiceImpl implements CommissionService {
 		commissionDao.updateByPrimaryKey(dbcommission);*/
 		
 		
+	}
+
+	@Override
+	public List<Commission> selectChildApply(Commission query, Page<Commission> page, String phone) {
+		
+		try {
+			Member member = memberDao.selectByPhone(phone);
+			query.setRootMemberId(member.getId());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return commissionDao.selectAll(query, page);
 	}
 
 	

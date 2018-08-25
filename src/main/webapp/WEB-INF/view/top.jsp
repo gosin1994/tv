@@ -38,13 +38,21 @@
 								会员管理
 							</a>
 						</li>
-						<c:if test="${sessionScope.user.isAdmin=='1'}">
+						
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle" href="${contextPath}/i/order">
 								订单管理
 							</a>
 						</li>
-						</c:if>
+						
+						<!--<c:if test="${sessionScope.user.isAdmin=='1'}">
+						<li class="dropdown hidden-phone">
+							<a class="btn dropdown-toggle" href="${contextPath}/i/order">
+								订单管理
+							</a>
+						</li>
+						</c:if>-->
+						
 						<c:if test="${sessionScope.user.isAdmin=='1'}">
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">

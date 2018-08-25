@@ -73,10 +73,13 @@
 											<td class="center"><fmt:formatDate
 													value="${order.createTime}" type="both" /></td>
 											<td>
-											<c:if test="${sessionScope.user.isAdmin=='1'}">
 											<a class="btn btn-info"
 												href="${contextPath}/i/order/${order.id}">修改</a>
-											</c:if>
+											
+											<!--<c:if test="${sessionScope.user.isAdmin=='1'}">
+											<a class="btn btn-info"
+												href="${contextPath}/i/order/${order.id}">修改</a>
+											</c:if>-->
 											<a class="btn btn-info"
 											href="${contextPath}/i/order/commissions/${order.id}"  >佣金明细</a>
 											

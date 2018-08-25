@@ -30,64 +30,68 @@ public class Commission {
     private Date updateTime;
 
     private Date createTime;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName == null ? null : customerName.trim();
-    }
-
-    public Integer getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(Integer memberId) {
-        this.memberId = memberId;
-    }
-
-    public String getMemberName() {
-        return memberName;
-    }
-
-    public void setMemberName(String memberName) {
-        this.memberName = memberName == null ? null : memberName.trim();
-    }
-
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
     
-    public String getBankName() {
+    private Integer rootMemberId;
+    
+    private String rootMemberName;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
+	}
+
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public Integer getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(Integer memberId) {
+		this.memberId = memberId;
+	}
+
+	public String getMemberName() {
+		return memberName;
+	}
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+
+	public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+
+	public String getBankName() {
 		return bankName;
 	}
 
@@ -111,7 +115,6 @@ public class Commission {
 		this.bankAccountNo = bankAccountNo;
 	}
 
-	
 	public String getAlipayNo() {
 		return alipayNo;
 	}
@@ -121,26 +124,45 @@ public class Commission {
 	}
 
 	public Integer getState() {
-        return state;
-    }
+		return state;
+	}
 
-    public void setState(Integer state) {
-        this.state = state;
-    }
+	public void setState(Integer state) {
+		this.state = state;
+	}
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+	public Date getUpdateTime() {
+		return updateTime;
+	}
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Integer getRootMemberId() {
+		return rootMemberId;
+	}
+
+	public void setRootMemberId(Integer rootMemberId) {
+		this.rootMemberId = rootMemberId;
+	}
+
+	public String getRootMemberName() {
+		return rootMemberName;
+	}
+
+	public void setRootMemberName(String rootMemberName) {
+		this.rootMemberName = rootMemberName;
+	}
+
+    
+
 }
